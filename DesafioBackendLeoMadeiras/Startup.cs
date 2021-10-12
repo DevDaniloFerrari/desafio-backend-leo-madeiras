@@ -37,11 +37,8 @@ namespace DesafioBackendLeoMadeiras
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseSwaggerConfiguration();
-            }
+            app.UseDeveloperExceptionPage();
+            app.UseSwaggerConfiguration();
 
             app.UseHttpsRedirection();
             app.UseRouting();
