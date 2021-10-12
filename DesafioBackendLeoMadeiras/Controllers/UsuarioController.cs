@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using DesafioBackendLeoMadeiras.Domain.Commands;
+using DesafioBackendLeoMadeiras.Domain.Helpers;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -13,23 +15,23 @@ namespace DesafioBackendLeoMadeiras.Controllers
         [HttpPost]
         [Route("autenticacao")]
         [AllowAnonymous]
-        public async Task<IActionResult> ValidarUsuario([FromBody] ValidateUserCommand command, [FromServices] IMediator mediator)
+        public async Task<IActionResult> ValidarUsuario([FromBody] ValidarUsuarioCommand command, [FromServices] IMediator mediator)
         {
             return Ok(await mediator.Send(command));
         }
 
         [HttpPost]
         [Route("seguranca")]
-        public async Task<IActionResult> ValidarSenha([FromBody] ValidatePasswordCommand command, [FromServices] IMediator mediator)
+        public async Task<IActionResult> ValidarSenha([FromBody] ValidarSenhaCommand command, [FromServices] IMediator mediator)
         {
             return Ok(await mediator.Send(command));
         }
 
         [HttpGet]
         [Route("senhaAleatoria")]
-        public IActionResult GerarSenha([FromServices] IUserService userService)
+        public IActionResult GerarSenha()
         {
-            return Ok(userService.GeneratePassword());
+            return Ok(SenhaHelper.GerarSenha());
         }
 
     }

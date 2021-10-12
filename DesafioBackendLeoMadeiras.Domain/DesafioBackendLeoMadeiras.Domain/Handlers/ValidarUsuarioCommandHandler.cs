@@ -27,7 +27,7 @@ namespace DesafioBackendLeoMadeiras.Domain.Handlers
                 return new Response(command.Notifications);
 
             var usuario = _usuarioRepository.ObterUsuario(command.Email);
-            if (usuario == null && !SenhaHelper.VerificarSenha(command.Senha, usuario.Senha))
+            if (usuario == null || !SenhaHelper.VerificarSenha(command.Senha, usuario.Senha))
                 return new Response("Email ou senha inválidos");
 
             var token = _tokenService.GerarToken(usuario);
