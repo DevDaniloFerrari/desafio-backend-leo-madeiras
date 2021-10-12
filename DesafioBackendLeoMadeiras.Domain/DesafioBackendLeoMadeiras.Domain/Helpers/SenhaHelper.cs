@@ -6,7 +6,7 @@ namespace DesafioBackendLeoMadeiras.Domain.Helpers
 {
     public class SenhaHelper
     {
-        public string GerarSenha()
+        public static string GerarSenha()
         {
             const string caracteresValidos = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#_-";
 

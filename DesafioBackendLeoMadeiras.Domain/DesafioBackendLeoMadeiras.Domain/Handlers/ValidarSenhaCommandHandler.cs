@@ -12,7 +12,7 @@ namespace DesafioBackendLeoMadeiras.Domain.Handlers
         {
             command.Validate();
             if (command.Invalid)
-                return new Response("Erro", command.Notifications);
+                return new Response(command.Notifications);
 
             var senhaEhValida = SenhaHelper.ValidarSenha(command.Senha);
 
