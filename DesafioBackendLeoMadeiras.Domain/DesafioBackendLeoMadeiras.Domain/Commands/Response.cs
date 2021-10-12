@@ -1,16 +1,25 @@
-﻿namespace DesafioBackendLeoMadeiras.Domain.Commands
+﻿using Flunt.Notifications;
+using System.Collections.Generic;
+
+namespace DesafioBackendLeoMadeiras.Domain.Commands
 {
     public class Response
     {
-        public Response(string mensagem, object dado, string[] erros = null)
+        public Response(string mensagem, object dado, IReadOnlyCollection<Notification> erros = null)
         {
             Mensagem = mensagem;
             Dado = dado;
-            Erros = erros;
+            Notificacoes = erros;
+        }
+
+        public Response(string mensagem, IReadOnlyCollection<Notification> erros = null)
+        {
+            Mensagem = mensagem;
+            Notificacoes = erros;
         }
 
         public string Mensagem { get; set; }
         public object Dado { get; set; }
-        public string[] Erros { get; set; }
+        public IReadOnlyCollection<Notification> Notificacoes { get; set; }
     }
 }
