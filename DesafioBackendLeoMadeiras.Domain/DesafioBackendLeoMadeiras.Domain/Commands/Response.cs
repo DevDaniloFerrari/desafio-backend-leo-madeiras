@@ -27,5 +27,6 @@ namespace DesafioBackendLeoMadeiras.Domain.Commands
         public string Mensagem { get; set; }
         public object Dado { get; set; }
         public IReadOnlyCollection<Notification> Notificacoes { get; set; }
+        public object Data { get; set; }
     }
 }
