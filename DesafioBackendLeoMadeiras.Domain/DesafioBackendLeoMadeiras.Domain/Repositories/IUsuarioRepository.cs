@@ -1,4 +1,6 @@
-﻿namespace DesafioBackendLeoMadeiras.Domain.Repositories
+﻿using DesafioBackendLeoMadeiras.Domain.Entities;
+
+namespace DesafioBackendLeoMadeiras.Domain.Repositories
 {
     public interface IUsuarioRepository
     {
