@@ -4,13 +4,13 @@ namespace DesafioBackendLeoMadeiras.Domain.Entities
 {
     public class Entidade
     {
-        public Entidade(Guid id, Guid criadoEm)
+        public Entidade()
         {
-            Id = id;
-            CriadoEm = criadoEm;
+            Id = Guid.NewGuid();
+            CriadoEm = DateTime.Now;
         }
 
         public Guid Id { get; set; }
-        public Guid CriadoEm { get; set; }
+        public DateTime CriadoEm { get; set; }
     }
 }
